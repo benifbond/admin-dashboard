@@ -5,8 +5,9 @@ import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import {Navbar,Footer,Sidebar,ThemeSettings,} from "./components"
 import {Employees,Editor,Ecommerce,Line,Stacked,Area,Calendar,ColorMapping,ColorPicker,Customers,Pie,Pyramid,Kanban,Financial,Bar,Orders} from "./pages"
+import { useStateContext } from "./contexts/ContextProvider"
 function App() {
-  const activeMenu = true;
+  const activeMenu = useStateContext()
   return (
     <div>
       <BrowserRouter>
@@ -26,11 +27,13 @@ function App() {
               <Sidebar />
             </div>
           ) : (
-            <div className='w-0 dark:bg-secondary-dark-bg'>sidebar w-0</div>
+              <div className='w-0 dark:bg-secondary-dark-bg'>
+                <Sidebar />
+              </div>
           )}
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen w-full
-              activeMenu ? ${activeMenu ? "md:ml-72" : " flex-2"}`}>
+               ${activeMenu ? "md:ml-72" : " flex-2"}`}>
             <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
               <Navbar />
             </div>
