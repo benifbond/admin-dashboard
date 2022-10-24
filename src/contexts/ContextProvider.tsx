@@ -1,55 +1,32 @@
-import { createContext, useContext, useState } from "react"
-
-export interface InitContextData {
-    // chat: boolean,
-    // cart: boolean,
-    // userProfile: boolean,
-    // notification: boolean,
-    activeMenu: boolean,
-    handleChange: () => void,
-    handleChangePrevActiveMenu: () => void,
-
-
-}
-
+import React from "react"
 const initialState = {
-    // chat: false,
-    // cart: false,
-    // userProfile: false,
-    // notification: false,
-    activeMenu: true,
-    handleChange: () => null,
-    handleChangePrevActiveMenu: () => null,
+    cart: false,
+    click: false,
+    chat: false,
+    userProfile: false,
+    notification: false,
+    activeMenu: false,
 }
 
-const Context = createContext<InitContextData>(initialState)
+const useValue = () => {
+    const [activeMenu, setActiveMenu] = React.useState(true);
+    const [isClicked, setIsClicked] = React.useState(initialState)
 
+    const handleClick = (click: string) => {
+        return (setIsClicked({ ...initialState, [click]: true }))
+    }
+    return { isClicked, setIsClicked, handleClick, setActiveMenu, activeMenu }
+}
 type Props = {
     children: JSX.Element,
 };
+export const StateContext = React.createContext({} as ReturnType<typeof useValue>)
 
-export const ContextProvider = ({ children }: Props) => {
-    const [activeMenu, setActiveMenu] = useState(true);
-    const handleChange = () => {
-        return setActiveMenu(false)
-    }
-    const handleChangePrevActiveMenu = () => {
-        return setActiveMenu((prevActive) => !activeMenu)
-    }
-
+export const StateContextProvider = ({ children }: Props) => {
     return (
-        <Context.Provider
-            value={
-                {
-                    activeMenu,
-                    handleChange,
-                    handleChangePrevActiveMenu
-
-                }
-            }
-        >
+        <StateContext.Provider value={useValue()}>
             {children}
-        </Context.Provider>
+        </StateContext.Provider>
     )
 }
-export const useStateContext = () => useContext(Context)
+export const useStateContext = () => React.useContext(StateContext)

@@ -1,6 +1,5 @@
 
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
-import { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { BsChatLeft } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
@@ -17,6 +16,7 @@ interface Props {
   icon?: React.ReactElement,
   color?: string,
   dotColor?: string,
+
 }
 
 const NavButton = ({ title, icon, color, customFunct, dotColor }: Props) => {
@@ -32,10 +32,54 @@ const NavButton = ({ title, icon, color, customFunct, dotColor }: Props) => {
 }
 
 const Navbar = () => {
-  const { activeMenu, handleChangePrevActiveMenu } = useStateContext()
+  const { isClicked, handleClick, setActiveMenu } = useStateContext()
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
-      <NavButton title='Menu' color='blue' customFunct={() => handleChangePrevActiveMenu()} icon={<AiOutlineMenu />} />
+      <NavButton title='Menu' color='blue'
+        customFunct={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
+        icon={<AiOutlineMenu />}
+      />
+      <div className='flex'>
+        <NavButton title='Cart'
+          color='blue'
+          customFunct={() => handleClick("cart")}
+          icon={<FiShoppingCart />}
+        />
+
+        <NavButton title='Chat'
+          dotColor='#03C9D7'
+          color='blue'
+          customFunct={() => handleClick("chat")}
+          icon={<BsChatLeft />}
+        />
+        <NavButton title='Notifications'
+          dotColor='#03C9D7'
+          color='blue'
+          customFunct={() => handleClick("notification")}
+          icon={<RiNotification3Line />}
+        />
+        <TooltipComponent content={"Profile"}
+          position="BottomCenter">
+          <div className='flex items-center 
+          gap-2 cursor-pointer p-1
+           hover:bg-light-gray rounded-lg'
+            onClick={() => handleClick("userProfile")}>
+            <img src={avatar} alt=" avatar"
+              className='rounded-full w-8 h-8' />
+            <p>
+              <span className='text-gray-400
+             text-14'>Hi,</span> {" "}
+              <span className='text-gray-400 
+              font-bold ml-1 text-14'>Joe</span>
+            </p>
+            <MdKeyboardArrowDown className='text-gray-400 text-14' />
+          </div>
+        </TooltipComponent>
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
+      </div>
     </div>
   )
 }
