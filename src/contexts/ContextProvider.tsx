@@ -8,14 +8,16 @@ const initialState = {
     activeMenu: false,
 }
 
+let unDefinedScreen: number;
+
 const useValue = () => {
     const [activeMenu, setActiveMenu] = React.useState(true);
     const [isClicked, setIsClicked] = React.useState(initialState)
-
+    const [screenSize, setScreenSize] = React.useState<number>(unDefinedScreen);
     const handleClick = (click: string) => {
         return (setIsClicked({ ...initialState, [click]: true }))
     }
-    return { isClicked, setIsClicked, handleClick, setActiveMenu, activeMenu }
+    return { isClicked, setIsClicked, handleClick, setActiveMenu, activeMenu, screenSize, setScreenSize }
 }
 type Props = {
     children: JSX.Element,
