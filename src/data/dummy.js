@@ -3074,6 +3074,7 @@ export const stackedCustomSeries = [
 ];
 
 export const stackedPrimaryXAxis = {
+  valueType: "Category",
   majorGridLines: { width: 0 },
   minorGridLines: { width: 0 },
   majorTickLines: { width: 0 },
@@ -3081,7 +3082,6 @@ export const stackedPrimaryXAxis = {
   interval: 1,
   lineStyle: { width: 0 },
   labelIntersectAction: "Rotate45",
-  valueType: "Category",
 };
 
 export const stackedPrimaryYAxis = {
