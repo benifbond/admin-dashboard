@@ -2729,7 +2729,7 @@ export const scheduleData = [
   {
     Id: 2,
     Subject: "Thule Air Crash Report",
-    Location: "Newyork City",
+    Location: "Lagos City Nigeria",
     StartTime: "2021-01-11T06:30:00.000Z",
     EndTime: "2021-01-11T08:30:00.000Z",
     CategoryColor: "#357cd2",
