@@ -1,11 +1,9 @@
-
 import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, StackingColumnSeries, Tooltip } from '@syncfusion/ej2-react-charts';
 import { stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis } from '../../data/dummy';
 import { useStateContext } from '../../contexts/ContextProvider';
-
 interface Props {
-  width: string
-  height: string
+  width?: string
+  height?: string
 }
 const Stacked = ({ width, height }: Props) => {
   const { currentMode } = useStateContext();
@@ -13,6 +11,7 @@ const Stacked = ({ width, height }: Props) => {
   return (
     <ChartComponent
       id="charts"
+      // @ts-ignore
       primaryXAxis={stackedPrimaryXAxis}
       primaryYAxis={stackedPrimaryYAxis}
       width={width}

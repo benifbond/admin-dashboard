@@ -15,9 +15,7 @@ interface Props {
   icon?: React.ReactElement,
   color?: string,
   dotColor?: string,
-
 }
-
 const NavButton = ({ title, icon, color, customFunct, dotColor }: Props) => {
   return (
     <TooltipComponent content={title} position="BottomCenter">

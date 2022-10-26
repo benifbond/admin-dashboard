@@ -13,7 +13,7 @@ const Area = () => {
       <ChartComponent
         id="area-chart"
         height="430px"
-        primaryXAxis={areaPrimaryXAxis}
+        // primaryXAxis={areaPrimaryXAxis}
         primaryYAxis={areaPrimaryYAxis}
         chartArea={{ border: { width: 0 } }}
         tooltip={{ enable: true }}

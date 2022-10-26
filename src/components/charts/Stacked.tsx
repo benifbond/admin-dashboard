@@ -11,6 +11,7 @@ const Stacked = ({ width, height }: Props) => {
       width={width}
       height={height}
       id="charts"
+      // @ts-ignore
       primaryXAxis={stackedPrimaryXAxis}
       primaryYAxis={stackedPrimaryYAxis}
       chartArea={{ border: { width: 0 } }}

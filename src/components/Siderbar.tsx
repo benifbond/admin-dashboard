@@ -26,7 +26,7 @@ const Siderbar = () => {
     font-extrabold tracking-tight dark:text-white
      text-slate-900">
               <SiShopware />
-              <span>Dashboard</span>
+                <span> Admin Dashboard</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
                 <button type="button" onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}

@@ -1,5 +1,5 @@
-import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, DateTime, Legend, Tooltip, LineSeries, SeriesBase } from "@syncfusion/ej2-react-charts"
-import { lineCustomSeries, LinePrimaryYAxis, LinePrimaryXAxis } from "../../data/dummy"
+import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, DateTime, Legend, Tooltip, LineSeries } from "@syncfusion/ej2-react-charts"
+import { lineCustomSeries, } from "../../data/dummy"
 import { useStateContext } from "../../contexts/ContextProvider"
 const LineChart = () => {
   const { currentMode } = useStateContext();
@@ -7,11 +7,11 @@ const LineChart = () => {
     <ChartComponent
       id="line-chart"
       height="430px"
-      primaryXAxis={LinePrimaryXAxis}
-      primaryYAxis={LinePrimaryYAxis}
+
       chartArea={{ border: { width: 0 } }}
       tooltip={{ enable: true }}
       background={currentMode === "Dark" ? "#33373E" : "#fff"}
+      legendSettings={{ enableHighlight: true }}
     >
       <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
       <SeriesCollectionDirective >

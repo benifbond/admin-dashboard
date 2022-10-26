@@ -13,7 +13,7 @@ const Notification = () => {
           <p className="font-semibold text-lg dark:text-gray-200">Notifications</p>
           <button type="button" className="text-white text-xs rounded p-1 px-2 bg-orange-theme "> 5 New</button>
         </div>
-        <Buttons icon={<MdOutlineCancel />} color="rgb(153, 171, 180)" bgHoverColor="light-gray" size="2xl" borderRadius="50%" />
+        <Buttons icon={<MdOutlineCancel onClick={() => { }} />} color="rgb(153, 171, 180)" bgHoverColor="light-gray" size="2xl" borderRadius="50%" />
       </div>
       <div className="mt-5 ">
         {chatData?.map((item, index) => (

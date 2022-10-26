@@ -1,4 +1,3 @@
-import React from 'react'
 import { Header, LineChart } from '../../components'
 
 const Line = () => {

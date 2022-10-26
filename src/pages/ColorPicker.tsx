@@ -3,6 +3,7 @@ import { Header } from "../components"
 
 
 const change = (args: any) => {
+  // @ts-ignore
   document.getElementById("preview").style.backgroundColor = args.currentValue.hex;
 
 }

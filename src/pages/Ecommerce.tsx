@@ -1,10 +1,6 @@
-import React from 'react'
-import { BsCurrencyEuro } from 'react-icons/bs'
 import { GoPrimitiveDot } from "react-icons/go"
-import { Stacked, Pie, Buttons, SparkLine } from '../components'
-import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy'
-import { useStateContext } from '../contexts/ContextProvider'
-import Line from './Charts/Line'
+import { Stacked, Buttons, SparkLine } from '../components'
+import { earningData, SparklineAreaData } from '../data/dummy'
 
 const Ecommerce = () => {
   return (

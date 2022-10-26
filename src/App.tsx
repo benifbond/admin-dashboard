@@ -1,10 +1,9 @@
 import "./App.css";
-import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import {Navbar,Footer,Sidebar,ThemeSettings,} from "./components"
-import { Employees, Editor, Ecommerce, Line, Stacked, Area, Calender, ColorMapping, ColorPicker, Customers, Pie, Pyramid, Kanban, Financial, Bar, Orders } from "./pages"
+import { Employees, Editor, Ecommerce, Line, Stacked, Area, Calender, ColorMapping, ColorPicker, Customers, Pyramid, Kanban, Financial, Bar, Orders, Pie } from "./pages"
 import { useStateContext } from "./contexts/ContextProvider"
 function App() {
   const { activeMenu, themeSettings, setThemeSettings, currentMode } = useStateContext()
@@ -60,8 +59,8 @@ function App() {
               {/* Charts */}
               <Route path='/line' element={<Line />} />
               <Route path='/area' element={<Area />} />
-              <Route path='/bar' element={<Bar />} />
-              <Route path='/pie' element={<Pie />} />
+                <Route path='/pie' element={<Pie />} />
+                <Route path='/bar' element={<Bar />} />
               <Route path='/financial' element={<Financial />} />
               <Route path='/color-mapping' element={<ColorMapping />} />
               <Route path='/pyramid' element={<Pyramid />} />
